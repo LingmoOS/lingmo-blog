@@ -2,9 +2,11 @@ name: Pages
 
 on:
   push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
-    branches:
-      - main # default branch
+
 
 jobs:
   build:
@@ -35,6 +37,7 @@ jobs:
         with:
           path: ./public
   deploy:
+    if: github.event_name == 'push'
     needs: build
     permissions:
       pages: write
