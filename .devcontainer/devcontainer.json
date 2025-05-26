@@ -1,0 +1,48 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "remoteUser": "codespace",
+    "containerUser": "codespace",
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [4000],
+    "portsAttributes": {
+        "4000": {
+          "label": "hexo"
+        }
+    },
+    "postStartCommand": "npm install",
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "jupyter.kernels.filter": [
+                    {
+                        "path": "/opt/conda/bin/python",
+                        "type": "pythonEnvironment"
+                    },
+                    {
+                        "path": "/usr/local/python/current/bin/python3",
+                        "type": "pythonEnvironment"
+                    },
+                    {
+                        "path": "/usr/local/python/current/bin/python",
+                        "type": "pythonEnvironment"
+                    },
+                    {
+                        "path": "/usr/bin/python3",
+                        "type": "pythonEnvironment"
+                    },
+                    {
+                        "path": "/bin/python3",
+                        "type": "pythonEnvironment"
+                    }
+                ],
+                "lldb.executable": "/usr/bin/lldb"
+            },
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "GitHub.vscode-pull-request-github"            ]
+        }
+    }
+}
